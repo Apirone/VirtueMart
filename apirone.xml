@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.6" type="plugin" group="vmpayment" method="upgrade">
+	<name>VM Payment - Apirone Bitcoin</name>
+	<author>Apirone LLC</author>
+	<creationDate>May 2018</creationDate>
+	<copyright>(C) 2018 Apirone. All rights reserved.</copyright>
+	<license>GNU/GPLv3 or late</license>
+	<authorUrl>https://apirone.com/</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[<a href="https://apirone.com" target="_blank">Apirone</a>]]> Bitcoin Forwarding</description>
+	<install>
+     <sql>
+         	<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+     </sql>
+	</install>
+	<uninstall>
+     	<sql>
+         	<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+     	</sql>
+	</uninstall>
+	<files>
+		<filename plugin="apirone">apirone.php</filename>
+		<folder>sql</folder>
+	</files>
+	<config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="merchantwallet" type="text" size="70" label="Destination Bitcoin Address" description="" required="true" />
+                <field name="test" type="list" default="1" label="Debug Mode" description="">
+					<option value="1">On</option>
+					<option value="0">Off</option>
+                </field>
+                <field name="confirmations" type="list" default="1" label="Minimum confirmations count" description="">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+                </field>
+                <field name="status_success"
+                       type="vmorderstate"
+                       scope="com_virtuemart"
+                       default="C"
+                       label="Success status"
+                       description="Success status"
+                       class="showOnCapture"
+                />
+                <field name="status_pending"
+                       type="vmorderstate"
+                       scope="com_virtuemart"
+                       default="P"
+                       label="Pending status"
+                       description="Pending status"
+                       class="showOnCapture"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
