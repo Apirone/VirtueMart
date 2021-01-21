@@ -92,7 +92,7 @@ class plgVMPaymentApirone extends vmPSPlugin
 			if ($error_message == false) {
               $html .='  <div id="bitcoin">
 	<div style="float:left; width: 30%;">
-            <img src="https://apirone.com/api/v1/qr?message=bitcoin:' . $response_create['input_address'] . '?amount='. $response_btc .'&format=svg" width="100%" alt="QR code">
+            <img src="https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=bitcoin:' . $response_create['input_address'] . '?amount='. $response_btc .'&format=svg" width="100%" alt="QR code">
     </div>
     <div class="billing-block" style="float:right; width:calc(70% - 1.2em); padding-top:1.2em; margin-left:1.2em;">
             <p><span class="text-muted">Amount to pay:</span><strong class="text-info"> '. $response_btc .' BTC</strong></p>
